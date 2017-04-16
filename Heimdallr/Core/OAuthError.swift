@@ -10,6 +10,7 @@ public let OAuthErrorInvalidGrant = 3
 public let OAuthErrorUnauthorizedClient = 4
 public let OAuthErrorUnsupportedGrantType = 5
 public let OAuthErrorInvalidScope = 6
+public let OAuthErrorMutliSession = 7
 
 public let OAuthURIErrorKey = "OAuthURIErrorKey"
 
@@ -20,6 +21,7 @@ public enum OAuthErrorCode: String {
     case UnauthorizedClient = "unauthorized_client"
     case UnsupportedGrantType = "unsupported_grant_type"
     case InvalidScope = "invalid_scope"
+	case MutliSession = "multi_sessions_detected"
 }
 
 public extension OAuthErrorCode {
@@ -37,6 +39,8 @@ public extension OAuthErrorCode {
             return OAuthErrorUnsupportedGrantType
         case .InvalidScope:
             return OAuthErrorInvalidScope
+		case .MutliSession:
+			return OAuthErrorMutliSession
         }
     }
 }
