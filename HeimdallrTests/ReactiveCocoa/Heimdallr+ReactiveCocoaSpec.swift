@@ -20,7 +20,7 @@ private class MockHeimdallr: Heimdallr {
         }
     }
 
-    private override func requestAccessToken(grantType grantType: String, parameters: [String: String], completion: Result<Void, NSError> -> ()) {
+    private override func requestAccessToken(grantType grantType: String, parameters: [String: AnyObject], completion: Result<Void, NSError> -> ()) {
         if authorizeSuccess {
             completion(Result(value: ()))
         } else {

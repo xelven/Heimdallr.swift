@@ -30,7 +30,7 @@ extension Heimdallr {
     /// - returns: A `SignalProducer` that, when started, creates a signal that
     ///     completes when the request finishes successfully or sends an error
     ///     if the request finishes with an error.
-    public func requestAccessToken(grantType grantType: String, parameters: [String: String]) -> SignalProducer<Void, NSError> {
+    public func requestAccessToken(grantType grantType: String, parameters: [String: AnyObject]) -> SignalProducer<Void, NSError> {
         return SignalProducer { observer, disposable in
             self.requestAccessToken(grantType: grantType, parameters: parameters) { result in
                 switch result {
