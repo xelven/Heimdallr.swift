@@ -102,6 +102,12 @@ internal struct Keychain {
     }
 
     public func storeAccessToken(accessToken: OAuthAccessToken?) {
+		if let assToken = accessToken {
+			keychain["access_token"] = nil
+			keychain["token_type"] = nil
+			keychain["expires_at"] = nil
+			keychain["refresh_token"] = nil
+		}
         keychain["access_token"] = accessToken?.accessToken
         keychain["token_type"] = accessToken?.tokenType
         keychain["expires_at"] = accessToken?.expiresAt?.timeIntervalSince1970.description
